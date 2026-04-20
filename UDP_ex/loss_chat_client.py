@@ -14,7 +14,7 @@ while True:
     while count <= 5:
         data = str(count) + ' ' + msg
         c_sock.sendto(msg.encode(), addr)
-        print('Sent: ({}): Waiting up to {} secs for ack'.format(i, time))
+        print('Sent: ({}): Waiting up to {} secs for ack'.format(count, time))
         c_sock.settimeout(time)
 
         try:

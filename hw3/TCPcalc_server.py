@@ -22,6 +22,7 @@ while True:
                 result = num1 * num2
             elif op == '/':
                 result = num1 / num2
+                result = round(result, 1)
             
             client.send(str(result).encode())
         except Exception as e:

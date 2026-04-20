@@ -1,4 +1,5 @@
 import struct
+import binascii
 
 class Udphdr:
     def __init__(self, src_port, dst_port, length, checksum):
@@ -30,7 +31,7 @@ class Udphdr:
 udp = Udphdr(5555, 80, 1000, 0xFFFF)
 packed_udp = udp.pack_Udphdr()
 print(packed_udp)
-print("b'"+str(packed_udp.hex()))
+print(binascii.b2a_hex(packed_udp))
 unpacked_udp = Udphdr.unpack_Udphdr(packed_udp)
 print(unpacked_udp)
 print(f"Source Port: {Udphdr.getSrcPort(unpacked_udp)} Destination: {Udphdr.getDestPort(unpacked_udp)} Length: {Udphdr.getLength(unpacked_udp)} Checksum: {Udphdr.getChecksum(unpacked_udp)}")
